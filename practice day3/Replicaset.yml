@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: priya-replica-set
+  namespace: priyanshi-ns
+spec:
+  replicas: 5
+  selector: 
+    matchLabels:
+      name: priya
+  template:
+    metadata:      
+      name: nginx-pod 
+      namespace: priyanshi-ns
+      labels: 
+        name: priya
+    spec:
+      containers:
+      - image: nginx
+        name: nginx-container
+        ports:
+        - containerPort: 80
